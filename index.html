@@ -13,6 +13,16 @@
             <div id="content" class="mt-5">
             </div>
         </div>
+
+        <script>
+            var content = document.getElementById("content");
+
+            function getText() {
+                fetch('foo.txt')
+                    .then(data => data.text())
+                    .then(data => content.innerHTML = data);
+            }
+        </script>
     </body>
 </html>
 
