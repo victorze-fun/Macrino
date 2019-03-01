@@ -5,24 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>Hello, world!</title>
+        <title>Fetch API</title>
     </head>
     <body>
-        <div class="container my-5 text-center">
-            <button class="btn btn-danger w-100" onclick="getText()">Obtener</button>
-            <div id="content" class="mt-5">
-            </div>
+        <div class="container mt-3">
+            <a class="btn btn-primary btn-block" href="text.html" role="button">Text</a>
+            <a class="btn btn-primary btn-block" href="user.html" role="button">User</a>
         </div>
-
-        <script>
-            var content = document.getElementById("content");
-
-            function getText() {
-                fetch('foo.txt')
-                    .then(data => data.text())
-                    .then(data => content.innerHTML = data);
-            }
-        </script>
     </body>
 </html>
 
