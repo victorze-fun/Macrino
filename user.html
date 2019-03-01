@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Fetch API</title>
+    </head>
+    <body>
+        <div class="container my-2">
+            <a class="btn btn btn-secondary btn-sm mb-2" href="index.html" role="button">Home</a>
+            <button class="btn btn-danger w-100" onclick="getUser()">Obtener usuario</button>
+            <div id="content" class="mt-4 text-center">
+            </div>
+        </div>
+
+        <script>
+            var content = document.getElementById("content");
+
+            function getUser() {
+                fetch('https://randomuser.me/api/')
+                    .then(res => res.json())
+                    .then(data => data.results[0])
+                    .then(user => {
+                        console.log(user);
+
+                        let fullName = user.name.first + " " + user.name.last;
+
+                        content.innerHTML = `
+                            <img src="${user.picture.large}" alt="" class="img-fluid rounded-circle">
+
+                            <div class="mt-4">
+                                <p>Name: <span class="text-capitalize">${fullName}</span></p>
+                                <p>Username: ${user.login.username}</p>
+                                <p>Email: ${user.email}</p>
+                                <p>Teléfono: ${user.phone}</p>
+                            </div>
+                        `;
+                    })
+            }
+        </script>
+    </body>
+</html>
+
